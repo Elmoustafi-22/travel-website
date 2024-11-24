@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Link from "next/link";
 import PackageDetails from "@/components/packageDetails";
+import { Package } from "@/models/package";
 
 const packages = [
   {
@@ -75,8 +76,10 @@ export default function Home() {
           <p className="text-sm text-darkGray w-full max-w-[750px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officiis provident error facilis veniam quam dolor molestias ullam nulla, quo ut? Harum minima dolorum nam, itaque aperiam tenetur dicta soluta.
           </p>
-          <div>
-            <PackageDetails />
+          <div className="flex flex-wrap mt-8">
+            {packages.map((pkg: Package, i: number) => {
+                return <PackageDetails key={i} pkgInfo={pkg}/>
+            })}
           </div>
         </div>
       </section>
