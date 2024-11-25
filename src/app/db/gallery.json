@@ -1,0 +1,64 @@
+{
+  "gallery": [
+    {
+      "img": "rome.jpg",
+      "location": "Rome"
+    },
+    {
+      "img": "paris.jpg",
+      "location": "Paris"
+    },
+    {
+      "img": "brussel.jpg",
+      "location": "Brussel"
+    },
+    {
+      "img": "slowakei.jpg",
+      "location": "Slowakei"
+    },
+    {
+      "img": "abu-dhabi.jpg",
+      "location": "Abu Dhabi"
+    },
+    {
+      "img": "belgium.jpg",
+      "location": "Belgium"
+    },
+    {
+      "img": "morocco.jpg",
+      "location": "Morocco"
+    },
+    {
+      "img": "washington.jpg",
+      "location": "Washington"
+    },
+    {
+      "img": "swiss-alps.jpg",
+      "location": "Swiss Alps"
+    },
+    {
+      "img": "maldives.jpg",
+      "location": "Maldives"
+    },
+    {
+      "img": "mumbai.jpg",
+      "location": "Mumbai"
+    },
+    {
+      "img": "costa-rica.jpg",
+      "location": "Costa Rica"
+    },
+    {
+      "img": "amsterdam.jpg",
+      "location": "Amsterdam"
+    },
+    {
+      "img": "sydney.jpg",
+      "location": "Sydney"
+    },
+    {
+      "img": "dubai.jpg",
+      "location": "Dubai"
+    }
+  ]
+}
