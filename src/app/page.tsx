@@ -4,6 +4,7 @@ import Packages from "@/components/Packages";
 import Stats from "@/components/Stats";
 import Banner from "@/components/Banner";
 import Gallery from "@/components/gallery";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Stats />
       <About />
       <Gallery />
+      <Testimonials />
     </>
   );
 }
