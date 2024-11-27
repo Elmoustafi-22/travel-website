@@ -5,6 +5,7 @@ import Stats from "@/components/Stats";
 import Banner from "@/components/Banner";
 import Gallery from "@/components/gallery";
 import Testimonials from "@/components/Testimonials";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <About />
       <Gallery />
       <Testimonials />
+      <ContactForm />
     </>
   );
 }

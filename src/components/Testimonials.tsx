@@ -56,7 +56,7 @@ function Testimonials() {
             <h2 className='text-6xl uppercase text-darkGray font-bold font-heading mb-3'>
                 Testimonials <span className='h-1 inline-block w-40 ml-2 bg-green'></span>
             </h2>
-            <p className='text-sm text-darkGray max-w-[750px]'>
+            <p className='text-sm font-body  text-darkGray max-w-[750px]'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolor consequatur perspiciatis commodi tenetur.
             </p>
             <div>
@@ -75,7 +75,7 @@ function Testimonials() {
                                         <path d="M336.63,250.54V33.44H553.71v217.1S587.7,503,364.37,512.71V392s85.76,35.63,74.55-141.49Z" />
                                         <path d="M3.71,250.54V33.44H220.79v217.1S254.78,503,31.46,512.71V392S117.21,427.66,106,250.54Z" />
                                     </svg>
-                                    <p className='text-base text-darkGray text-center mt-6 mb-8'>
+                                    <p className='font-body text-base text-darkGray text-center mt-6 mb-8'>
                                         {tm.message}
                                     </p>
                                     <Image 
