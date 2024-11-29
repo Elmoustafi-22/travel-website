@@ -43,7 +43,7 @@ const packages = [
 
 export default function Packages() {
   return (
-    <section className="py-20">
+    <section id='packages' className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-6xl font-heading font-bold text-darkGray mb-3 uppercase">
             Packages

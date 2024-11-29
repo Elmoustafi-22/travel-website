@@ -1,40 +1,78 @@
-import React from 'react'
-import Link from 'next/link'
+"use client"
+import React, { useState } from 'react'
+import { useEffect } from 'react'
+
+const menus = ["home", "packages", "about", "gallery", "contact"]
 
 export default function Header() {
+  const [activeSection, setActiveSection] = useState(null);
+  const [toggleMenu, setToggleMenu] = useState(false)
+
+  useEffect (() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.4,
+    };
+
+    const observer = new IntersectionObserver((entries: any) => {
+      entries.forEach((entry: any) => {
+        if(entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, options);
+
+    menus.forEach((menu: string) => {
+      const element = document.getElementById(menu);
+      if (element) observer.observe(element)
+    });
+
+    return () => observer.disconnect();
+  }, [menus])
   return (
-    <header className='fixed bg-black bg-opacity-50 top-0 right-0 left-0 py-4 z-40'>
-      <nav className='flex gap-10 justify-center items-center'>
-        <Link 
-          href="#" 
-          className='uppercase font-semibold font-body text-white px-5 py-1 rounded-2xl shadow-xl hover:bg-green transition duration-200'
+    <header className='fixed left-0 right-0 z-50 bg-black bg-opacity-50 py-4'>
+      <div className='px-4 flex justify-end sm:hidden'>
+        <button 
+          className='cursor-pointer' 
+          onClick={() => setToggleMenu(!toggleMenu)}
         >
-          Home
-        </Link>
-        <Link 
-          href="#" 
-          className='uppercase font-semibold font-body text-white px-5 py-1 rounded-2xl shadow-xl hover:bg-green transition duration-200'
-        >
-          About
-        </Link>
-        <Link 
-          href="#" 
-          className='uppercase font-semibold font-body text-white px-5 py-1 rounded-2xl shadow-xl hover:bg-green transition duration-200'
-        >
-          Gallery
-        </Link>
-        <Link 
-          href="#" 
-          className='uppercase font-semibold font-body text-white px-5 py-1 rounded-2xl shadow-xl hover:bg-green transition duration-200'
-        >
-          Packages
-        </Link>
-        <Link 
-          href="#" 
-          className='uppercase font-semibold font-body text-white px-5 py-1 rounded-2xl shadow-xl hover:bg-green transition duration-200'
-        >
-          Contact
-        </Link>
+          <svg
+            id="Layer_1"
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 246.42 246.04"
+            className="fill-white w-8 h-8"
+          >
+            <rect x="0.79" y="30.22" width="245.63" height="23.36" rx="11.68" />
+            <rect
+              x="0.39"
+              y="111.32"
+              width="245.63"
+              height="23.36"
+              rx="11.68"
+            />
+            <rect y="192.42" width="245.63" height="23.36" rx="11.68" />
+          </svg>
+        </button>
+      </div>
+      <nav className={`${
+          toggleMenu ? "flex" : "hidden sm:flex" 
+        } justify-center items-center gap-3 sm:gap-5 lg:gap-10 sm:flex-row flex-col mt-2 sm:mt-0`}>
+        {
+          menus.map((menu: string, i: number) => {
+            return (
+              <a 
+                href={`#${menu}`}
+                key={i}
+                className={`w-full sm:w-auto uppercase font-semibold text-base font-body text-white text-center sm:px-3 lg:px-5 py-2 sm:py-1 rounded-2xl transition-all ease-linear hover:bg-green hover:shadow-md ${activeSection == menu ? "bg-green shadow-md" : ""}`}
+              >
+                {menu}
+              </a>
+            )
+          })
+        }
+        
       </nav>
     </header>
   )

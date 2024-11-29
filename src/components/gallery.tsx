@@ -21,7 +21,7 @@ function Gallery() {
   }
   return (
     <>
-        <section className="bg-[url('/mountains.jpg')] bg-no-repeat bg-cover bg-center">
+        <section id='gallery' className="bg-[url('/mountains.jpg')] bg-no-repeat bg-cover bg-center">
         <div className="py-20 bg-black bg-opacity-20">
           <div className="container mx-auto px-4">
             <h2 className="text-6xl font-bold font-heading text-black mb-3 uppercase">

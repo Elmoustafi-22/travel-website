@@ -14,7 +14,7 @@ function ContactForm() {
   }
 
   return (
-    <section className="bg-[url('/contact.jpg')] bg-no-repeat bg-cover bg-bottom py-20">
+    <section id='contact' className="bg-[url('/contact.jpg')] bg-no-repeat bg-cover bg-bottom py-20">
         <div className='container mx-auto p-20 bg-black bg-opacity-35 rounded'>
             <h2 className='text-6xl font-bold text-white mb-3 uppercase font-heading'>
                 Contact Me <span className='inline-block w-40 h-1 ml-2 bg-green'></span>

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 function Banner() {
   return (
-    <section className="bg-bannerImg bg-no-repeat bg-cover bg-bottom">
+    <section id='home' className="bg-bannerImg bg-no-repeat bg-cover bg-bottom">
         <div className="w-full h-screen flex items-end bg-blackOverlay">
           <div className="container mx-auto mb-40">
             <h2 className="text-white font-heading uppercase text-7xl font-bold">
