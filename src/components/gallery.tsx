@@ -24,7 +24,7 @@ function Gallery() {
         <section id='gallery' className="bg-[url('/mountains.jpg')] bg-no-repeat bg-cover bg-center">
         <div className="py-20 bg-black bg-opacity-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-6xl font-bold font-heading text-black mb-3 uppercase">
+            <h2 className="text-4xl lg:text-6xl md:text-5xl  font-bold font-heading text-black mb-3 uppercase">
               Gallery<span className="inline-block bg-darkGray w-40 h-1 ml-2"></span>
             </h2>
             <p className="font-body text-sm text-black w-full max-w-[750px]">
@@ -38,7 +38,7 @@ function Gallery() {
                         return (
                             <a
                                 key={i}
-                                className='w-1/5 cursor-pointer hover:scale-110 transition-all ease-in-out'
+                                className='w-full sm:w-1/2 lg:w-1/3 xl:w-1/5 2xl:w-1/5 cursor-pointer hover:scale-110 transition-all ease-in-out'
                                 onClick={() => {
                                     setSelectedImg(i);
                                     setImgPop(true)

@@ -1,6 +1,14 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { useForm } from "react-hook-form";
+import { useForm, FieldValues } from "react-hook-form";
+
+interface BookingFormData {
+  name: string;
+  email: string;
+  contactNo: string;
+  pkgName: string;
+  location: string;
+}
 
 function BookingForm({
     pkgName, 
@@ -25,19 +33,20 @@ function BookingForm({
   useEffect(() => {
     setValue("pkgName", pkgName);
     setValue("location", location);
-  }, )
-  const onBooking = (data: any) => {
-    if (data) {
-        console.log(data)
-        setMsg("Thanks for your interest... Back to you shortly!")
-        reset()
+  }, [pkgName, location, setValue])
+  const onBooking = (data: FieldValues) => {
+    const bookingData = data as BookingFormData;  // Type assertion
+    if (bookingData) {
+        console.log(bookingData);
+        setMsg("Thanks for your interest... Back to you shortly!");
+        reset();
 
-        let timer = setTimeout(() => {
-            setMsg("");
-            clearInterval(timer);
-        }, 2000)
+        const timer = setTimeout(() => {
+        setMsg("");
+        clearInterval(timer);
+        }, 2000);
     }
-  }
+};
   return (
     popStatus && (   
         <section className='fixed z-50 top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-80'>

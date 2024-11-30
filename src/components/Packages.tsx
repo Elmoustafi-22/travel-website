@@ -45,9 +45,9 @@ export default function Packages() {
   return (
     <section id='packages' className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-6xl font-heading font-bold text-darkGray mb-3 uppercase">
+          <h2 className="text-4xl  md:text-5xl lg:text-6xl font-heading font-bold text-darkGray mb-3 uppercase">
             Packages
-            <span className="inline-block bg-green w-40 h-1 ml-2"></span>
+            <span className="inline-block bg-green sm-20 sm:w-40 h-1 ml-2"></span>
           </h2>
           <p className="text-sm text-darkGray w-full max-w-[750px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officiis provident error facilis veniam quam dolor molestias ullam nulla, quo ut? Harum minima dolorum nam, itaque aperiam tenetur dicta soluta.

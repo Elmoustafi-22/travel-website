@@ -9,7 +9,7 @@ const PackageDetails = ({pkgInfo}: {pkgInfo: Package}) => {
     return (
         <>
             <aside 
-                className="group w-1/3 bg-cover bg-center"
+                className="group w-full sm:w-1/2 lg:w-1/3 bg-cover bg-center"
                 style={{ backgroundImage: `url(/${pkgInfo.bgImg})` }}
             >
                 <div 

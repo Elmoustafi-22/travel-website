@@ -5,31 +5,33 @@ import { useEffect } from 'react'
 const menus = ["home", "packages", "about", "gallery", "contact"]
 
 export default function Header() {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const [toggleMenu, setToggleMenu] = useState(false)
 
-  useEffect (() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.4,
-    };
+  useEffect(() => {
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.4,
+  };
 
-    const observer = new IntersectionObserver((entries: any) => {
-      entries.forEach((entry: any) => {
-        if(entry.isIntersecting) {
-          setActiveSection(entry.target.id)
-        }
-      })
-    }, options);
-
-    menus.forEach((menu: string) => {
-      const element = document.getElementById(menu);
-      if (element) observer.observe(element)
+  const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const targetElement = entry.target as HTMLElement;
+        setActiveSection(targetElement.id);
+      }
     });
+  }, options);
 
-    return () => observer.disconnect();
-  }, [menus])
+  menus.forEach((menu) => {
+    const element = document.getElementById(menu);
+    if (element) observer.observe(element);
+  });
+
+  return () => observer.disconnect();
+}, []); // No need for [menus]
+
   return (
     <header className='fixed left-0 right-0 z-50 bg-black bg-opacity-50 py-4'>
       <div className='px-4 flex justify-end sm:hidden'>

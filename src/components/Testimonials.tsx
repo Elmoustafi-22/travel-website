@@ -51,9 +51,9 @@ const settings = {
 
 function Testimonials() {
   return (
-    <section className='py-20'>
+    <section className='py-10'>
         <div className='container mx-auto px-4'>
-            <h2 className='text-6xl uppercase text-darkGray font-bold font-heading mb-3'>
+            <h2 className='text-4xl lg:text-6xl md:text-5xl sm:text-4xl uppercase text-darkGray font-bold font-heading mb-3'>
                 Testimonials <span className='h-1 inline-block w-40 ml-2 bg-green'></span>
             </h2>
             <p className='text-sm font-body  text-darkGray max-w-[750px]'>

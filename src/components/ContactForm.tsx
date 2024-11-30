@@ -1,12 +1,20 @@
 "use client"
 import React, { useState } from 'react'
-import { useForm } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
+
+interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  contactNo?: string;
+  message?: string;
+}
 
 function ContactForm() {
-  const { register, reset, handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm<ContactFormData>();
   const [msg, setMsg] = useState<string>()
 
-  const dataSubmit = (data: any) => {
+  const dataSubmit: SubmitHandler<ContactFormData> = (data) => {
     if(data) {
         setMsg("Thank You For Contacting Us!")
         reset();
@@ -14,17 +22,17 @@ function ContactForm() {
   }
 
   return (
-    <section id='contact' className="bg-[url('/contact.jpg')] bg-no-repeat bg-cover bg-bottom py-20">
+    <section id='contact' className="bg-[url('/contact.jpg')] bg-no-repeat bg-cover bg-bottom py-10">
         <div className='container mx-auto p-20 bg-black bg-opacity-35 rounded'>
-            <h2 className='text-6xl font-bold text-white mb-3 uppercase font-heading'>
+            <h2 className='text-4xl lg:text-6xl md:text-5xl font-bold text-white mb-3 uppercase font-heading'>
                 Contact Me <span className='inline-block w-40 h-1 ml-2 bg-green'></span>
             </h2>
             <p className='text-sm text-white w-full max-w-[750px] font-body'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsum quidem cupiditate consequuntur repellat architecto magnam, consectetur esse sequi molestias accusantium nulla doloribus dolor quos eaque autem quia odit illo!
             </p>
-            <form className='mt-5' onClick={handleSubmit(dataSubmit)}>
-                <div className="flex gap-6 my-3">
-                    <div className='w-1/2'>
+            <form className='mt-5' onSubmit={handleSubmit(dataSubmit)}>
+                <div className="flex flex-col md:flex-row md:gap-6 gap-3 my-3">
+                    <div className='md:w-1/2 w-full'>
                         <input 
                             type="text" 
                             placeholder='First Name' 
@@ -32,7 +40,7 @@ function ContactForm() {
                             {...register("firstName", {required: true})}
                         />
                     </div>
-                    <div className='w-1/2'>
+                    <div className='md:w-1/2 w-full'>
                         <input 
                             type="text" 
                             placeholder='Last Name' 
@@ -42,8 +50,8 @@ function ContactForm() {
                     </div>
                 </div>
 
-                <div className="flex gap-6 my-3">
-                    <div className='w-1/2'>
+                <div className="flex flex-col md:flex-row md:gap-6 gap-3 my-3">
+                    <div className='md:w-1/2 w-full'>
                         <input 
                             type="email" 
                             placeholder='E-mail' 
@@ -51,7 +59,7 @@ function ContactForm() {
                             {...register("email", {required: true})}
                         />
                     </div>
-                    <div className='w-1/2'>
+                    <div className='md:w-1/2 w-full'>
                         <input 
                             type="tel" 
                             placeholder='Contact No.' 
@@ -72,7 +80,7 @@ function ContactForm() {
 
                 </div>
 
-                <div className="flex items-center justify-end mt-6">
+                <div className="flex items-center justify-end md:mt-6 mt-3">
                     <p className='font-body text-white font-medium text-lg mr-2'>{msg}</p>
                     <button 
                         type='submit'
@@ -83,7 +91,7 @@ function ContactForm() {
                 </div>
             </form>
 
-            <footer className='mt-20 text-center text-white font-semibold font-body text-sm'>
+            <footer className='md:mt-20 mt-5 text-center text-white font-semibold font-body text-sm'>
                 <div className="flex justify-center items-center gap-5 mb-5">
                     <a href="">
                         <svg
